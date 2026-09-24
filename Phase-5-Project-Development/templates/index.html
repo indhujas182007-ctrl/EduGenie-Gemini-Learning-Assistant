@@ -12,28 +12,43 @@
 
 <body>
 
-    <h1>🎓 EduGenie</h1>
+    <div class="container">
 
-    <h2>Google Gemini Powered Learning Assistant</h2>
+        <h1>🎓 EduGenie</h1>
 
-    <p>Ask your academic question below:</p>
+        <h2>Google Gemini Powered Learning Assistant</h2>
 
-    <form action="/ask" method="post">
+        <p>Learn • Understand • Explore</p>
 
-        <input
-            type="text"
-            name="question"
-            placeholder="Type your question here..."
-            required
-        >
+        <form action="/ask" method="post">
 
-        <br><br>
+            <label for="task">Choose a Task:</label>
 
-        <button type="submit">Ask EduGenie 🤖</button>
+            <select id="task" name="task">
+                <option value="qa">🤖 Q&A</option>
+                <option value="explain">💡 Explain</option>
+                <option value="quiz">📝 Quiz</option>
+                <option value="summary">📄 Summary</option>
+                <option value="learning_path">🛣️ Learning Path</option>
+            </select>
 
-    </form>
+            <br><br>
 
-    <p>📚 Learn • Understand • Explore</p>
+            <textarea
+                name="question"
+                placeholder="Enter your topic, question or text here..."
+                required
+            ></textarea>
+
+            <br>
+
+            <button type="submit">
+                Ask EduGenie 🚀
+            </button>
+
+        </form>
+
+    </div>
 
 </body>
 
