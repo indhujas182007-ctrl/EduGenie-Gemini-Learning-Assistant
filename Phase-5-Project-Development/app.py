@@ -14,14 +14,14 @@ app = FastAPI(title="EduGenie")
 # Connect static CSS files
 app.mount(
     "/static",
-    StaticFiles(directory="Phase-5-Project-Development/static"),
+    StaticFiles(directory="static"),
     name="static"
 )
 
 
 # Templates folder
 templates = Jinja2Templates(
-    directory="Phase-5-Project-Development/templates"
+    directory="templates"
 )
 
 
