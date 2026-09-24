@@ -7,31 +7,23 @@ from fastapi.staticfiles import StaticFiles
 from google import genai
 
 
-# Create FastAPI application
 app = FastAPI(title="EduGenie")
 
-
-# Connect static CSS files
 app.mount(
     "/static",
     StaticFiles(directory="static"),
     name="static"
 )
 
-
-# Templates folder
 templates = Jinja2Templates(
     directory="templates"
 )
 
-
-# Connect Google Gemini
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
 )
 
 
-# Home page
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
 
@@ -43,25 +35,32 @@ def home(request: Request):
     )
 
 
-# Ask question
 @app.post("/ask", response_class=HTMLResponse)
 def ask_question(
     request: Request,
+    task: str = Form(...),
     question: str = Form(...)
 ):
 
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=question
-    )
+    if task == "qa":
+        prompt = f"Answer this academic question clearly and simply:\n{question}"
 
-    answer = response.text
+    elif task == "explain":
+        prompt = f"Explain this topic in simple words for a student:\n{question}"
 
-    return templates.TemplateResponse(
-        "response.html",
-        {
-            "request": request,
-            "question": question,
-            "answer": answer
-        }
-    )
+    elif task == "quiz":
+        prompt = f"""
+Create 3 multiple-choice questions about this topic.
+
+Topic:
+{question}
+
+Give 4 options for each question and clearly mention the correct answer.
+"""
+
+    elif task == "summary":
+        prompt = f"Summarize the following text in simple words:\n{question}"
+
+    elif task == "learning_path":
+        prompt = f"""
+Create a beginner-to-advanced learning path
