@@ -21,12 +21,19 @@ h2 {
     color: #444;
 }
 
-input {
-    width: 80%;
+select,
+textarea {
+    width: 90%;
     padding: 12px;
+    margin-top: 10px;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
 }
 
 button {
