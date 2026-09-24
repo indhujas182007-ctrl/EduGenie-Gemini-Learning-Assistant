@@ -1,20 +1,32 @@
 # Phase 6 – Project Testing
 
+## Project Name
+
+EduGenie – Google Gemini Powered Learning Assistant
+
 ## Testing Objective
 
-The EduGenie application is tested to verify that the frontend, FastAPI backend, and Google Gemini AI integration work correctly.
+The EduGenie application was tested to verify that the Gemini AI integration and core application functionality work correctly.
 
-## Test Cases
+## Test Cases and Results
 
-1. Verify that the EduGenie home page loads correctly.
-2. Verify that the user can enter an academic question.
-3. Verify that the question is submitted successfully.
-4. Verify that the FastAPI backend receives the question.
-5. Verify that Google Gemini generates a response.
-6. Verify that the generated response is displayed to the user.
-7. Verify that empty questions are not submitted.
-8. Verify that errors are handled properly.
+| Test Case | Description | Result |
+|---|---|---|
+| Test 1 | Verify that EduGenie receives a normal academic question and generates an AI response. | PASSED |
+| Test 2 | Verify that an empty question is detected and not processed. | PASSED |
+| Test 3 | Verify that EduGenie can answer different academic questions. | PASSED |
+| Test 4 | Verify that the application can handle errors during AI response generation. | PASSED |
+
+## Testing Summary
+
+The core functionality of EduGenie was tested successfully. The application was able to process academic questions and receive responses from Google Gemini.
 
 ## Expected Result
 
-EduGenie should accept an academic question and display an AI-generated response through the web interface.
+EduGenie should accept a student's academic question and generate an AI-based educational response.
+
+## Final Testing Status
+
+All planned basic test cases were completed successfully.
+
+**Status: Testing Completed Successfully**
