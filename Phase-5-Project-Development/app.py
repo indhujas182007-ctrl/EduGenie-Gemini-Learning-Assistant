@@ -1,5 +1,4 @@
 import os
-import json
 
 from fastapi import FastAPI, Form, Request
 from fastapi.templating import Jinja2Templates
@@ -20,14 +19,14 @@ client = genai.Client(
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-return templates.TemplateResponse(
-    "response.html",
-    {
-        "request": request,
-        "question": question,
-        "answer": answer
-    }
-)
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request
+        }
+    )
+
+
 def ask_gemini(prompt):
     response = client.models.generate_content(
         model="gemini-3.6-flash",
