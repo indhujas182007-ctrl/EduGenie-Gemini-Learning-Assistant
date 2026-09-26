@@ -20,10 +20,9 @@ client = genai.Client(
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse(
-        "index.html",
-        {
-            "request": request
-        }
+        request=request,
+        name="index.html",
+        context={}
     )
 
 
@@ -111,9 +110,9 @@ def ask(
         answer = "Please select a valid task."
 
     return templates.TemplateResponse(
-        "response.html",
-        {
-            "request": request,
+        request=request,
+        name="response.html",
+        context={
             "question": question,
             "answer": answer
         }
