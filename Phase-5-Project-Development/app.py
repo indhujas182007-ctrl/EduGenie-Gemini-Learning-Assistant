@@ -27,11 +27,15 @@ def home(request: Request):
 
 
 def ask_gemini(prompt):
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=prompt
-    )
-    return response.text
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.6-flash",
+            contents=prompt
+        )
+        return response.text
+
+    except Exception as e:
+        return f"Gemini Error: {str(e)}"
 
 
 @app.post("/qa")
