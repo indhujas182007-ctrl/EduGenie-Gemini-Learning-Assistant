@@ -20,11 +20,14 @@ client = genai.Client(
 
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse(
-    request=request,
-    name="index.html"
-    )
-
+return templates.TemplateResponse(
+    "response.html",
+    {
+        "request": request,
+        "question": question,
+        "answer": answer
+    }
+)
 def ask_gemini(prompt):
     response = client.models.generate_content(
         model="gemini-3.6-flash",
