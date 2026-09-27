@@ -9,16 +9,16 @@ st.set_page_config(
 
 st.title("🎓 EduGenie")
 st.subheader("Google Gemini Powered Learning Assistant")
-st.write("Learn • Understand • Explore")
+st.write("Learn - Understand - Explore")
 
 task = st.selectbox(
     "Choose a Task:",
     [
-        "🤖 Q&A",
-        "💡 Explain",
-        "📝 Quiz",
-        "📄 Summary",
-        "🛣️ Learning Path"
+        "Q&A",
+        "Explain",
+        "Quiz",
+        "Summary",
+        "Learning Path"
     ]
 )
 
@@ -27,7 +27,7 @@ question = st.text_area(
     height=150
 )
 
-if st.button("Ask EduGenie 🚀"):
+if st.button("Ask EduGenie"):
 
     api_key = os.getenv("GEMINI_API_KEY")
 
@@ -37,18 +37,11 @@ if st.button("Ask EduGenie 🚀"):
     else:
         client = genai.Client(api_key=api_key)
 
-        if task == "🤖 Q&A":
-            prompt = f"""
-Answer this student's question clearly and simply:
+        if task == "Q&A":
+            prompt = f"Answer this student's question clearly and simply:\n{question}"
 
-{question}
-"""
+        elif task == "Explain":
+            prompt = f"Explain this topic in very simple words for a student:\n{question}"
 
-        elif task == "💡 Explain":
-            prompt = f"""
-Explain this topic in very simple words for a student:
-
-{question}
-"""
-
-        elif task == "📝
+        elif task == "Quiz":
+           
