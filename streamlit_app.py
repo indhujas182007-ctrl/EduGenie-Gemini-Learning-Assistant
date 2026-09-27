@@ -9,7 +9,6 @@ st.set_page_config(
 
 st.title("🎓 EduGenie")
 st.subheader("Google Gemini Powered Learning Assistant")
-
 st.write("Learn • Understand • Explore")
 
 task = st.selectbox(
@@ -34,8 +33,22 @@ if st.button("Ask EduGenie 🚀"):
 
     if not api_key:
         st.error("Gemini API key is not configured.")
+
     else:
         client = genai.Client(api_key=api_key)
 
         if task == "🤖 Q&A":
-           
+            prompt = f"""
+Answer this student's question clearly and simply:
+
+{question}
+"""
+
+        elif task == "💡 Explain":
+            prompt = f"""
+Explain this topic in very simple words for a student:
+
+{question}
+"""
+
+        elif task == "📝
