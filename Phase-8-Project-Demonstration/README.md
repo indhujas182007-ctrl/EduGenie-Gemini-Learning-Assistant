@@ -35,4 +35,4 @@ Sharing setting:
 
 Demo video: **To be uploaded**
 
-Google Drive link: **To be added after recording**
+Google Drive link: https://drive.google.com/file/d/1gEzpURATiiLRMR75T2YNxCPoxotP8mx_/view?usp=drivesdk
